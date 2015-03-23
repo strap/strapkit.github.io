@@ -1,0 +1,404 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+.dash-body {
+	padding-top: $navbar-height;
+	transition: -webkit-filter 0.3s linear, -webkit-transform 0.3s linear;
+}
+.main-body {
+	transition: -webkit-filter 0.3s linear, -webkit-transform 0.3s linear;
+}
+.modal-open {
+	.dash-body {
+		-webkit-filter: blur(5px);
+    	-webkit-transform: scale3d(0.98, 0.98, 0.98);
+	}
+	.main-body {
+		-webkit-filter: blur(5px);
+	}
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+	display: none;
+}
+@media (min-width: 768px) {
+	.sidebar {
+		position: fixed;
+		//top: $navbar-height;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: $sidebar-z-index;
+		display: block;
+		padding: 20px;
+		overflow-x: hidden;
+		overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+		background-color: $white;
+		border-right: 0px solid #eee;
+		padding-top: (18px + $navbar-height);
+		a {
+			&.current, &.current:hover {
+				color: $strap-main-light;
+			}
+		}
+		.nav-sidebar {
+			margin-right: -21px; /* 20px padding + 1px border */
+			margin-bottom: 24px;
+			margin-left: -20px;
+			li {
+				a {
+					@include transition(background 0.15s ease-in-out, color 0.15s ease-in-out);
+					padding:0;
+					display:inline-block;
+					margin: 10px 20px 10px 46px;
+					color: $dark-gray;
+					&:hover {
+						color: $strap-main-hover;
+						background-color: $white;
+					}
+					&.current, &.current:hover {
+						color: $strap-main;
+					}
+				}
+			}
+		}
+		&.sidebar-gray {
+			background-color: $off-white;
+			a {
+				&.current, &.current:hover {
+					color: $white;
+					background-color: $strap-main-light;
+				}
+			}
+			.nav-sidebar {
+				li {
+					a {
+						margin:0;
+						display: block;
+						padding: 10px 20px 10px 46px;
+						color: $strap-main;
+						&:hover {
+							background-color: #eee;
+							color: $strap-main-hover;
+						}
+						&.current, &.current:hover {
+							color: $white;
+							background-color: $strap-main-light;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.table-border-right {
+
+	> thead > tr > th, > tbody > tr > th, > tfoot > tr > th, > thead > tr > td, > tbody > tr > td, > tfoot > tr > td {
+		border-right: 1px solid #ddd;
+		&:last-child {
+			border-right: 0px;
+		}
+	}
+}
+.table-no-bmargin {
+	margin-bottom: 0;
+}
+
+.table-striped {
+	> thead:first-child > tr:first-child > th {
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+	}
+	> tbody {
+		> tr:nth-child(odd) {
+			> td, > th {
+				background-color: $white;
+			}
+		}
+	}
+}
+/* Sidebar navigation */
+.nav-sidebar {
+	margin-right: -21px; /* 20px padding + 1px border */
+	margin-bottom: 24px;
+	margin-left: -20px;
+	li {
+	a {
+		padding:0;
+		margin: 10px 20px 10px 46px;
+		&.current, &.current:hover {
+		color: $strap-main-light;
+		}
+	}
+	}
+}
+
+
+
+/*
+ * Main content
+ */
+
+.main {
+	padding: 0;
+	padding-bottom: 40px;
+	@include breakpoint("desktop") {	
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	.row {
+		margin-left: 40px;
+		margin-right: 40px;
+		.row {
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+	}
+	.page-header {
+		margin-top: 0;
+		background-color: $white;
+		padding-left: 55px;
+		padding-right: 55px;
+		float:left;
+		width:100%;
+		border-bottom:none;
+		h1, .h1 {
+			//padding-left: 15px;
+		}
+	}
+	.alert-wrap {
+		padding: 20px 40px 0;
+		float:left;
+		width:100%;
+		background-color: $white;
+	}
+}
+
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+	margin-bottom: 30px;
+	text-align: center;
+}
+.placeholders h4 {
+	margin-bottom: 0;
+}
+.placeholder {
+	margin-bottom: 20px;
+}
+.placeholder img {
+	display: inline-block;
+	border-radius: 50%;
+}
+
+.overlay-wrap {
+	position:relative;
+	.overlay {
+	position:absolute;
+	z-index:$overlay-z-index;
+	}
+}
+
+
+.user-img-small {
+	width:32px;
+	height:auto;
+	margin: -10px 10px;
+	@include border-radius(2.5em);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  // width: 100%;
+  /* Set the fixed height of the footer here */
+  // height: 60px;
+  // background-color: #f5f5f5;
+}
+
+.password-reset {
+	margin-bottom:15px;
+}
+
+
+$white: white;
+
+$darken-color: #0046C5;
+
+$fade-color: #f0f;
+
+$hue-color: #AD3C33;
+
+$start-color: #387F6C;
+$end-color: purple;
+
+
+$step: 1; // Set the initial step value
+
+//Here's the start of the while function
+//The "<= #" determines the number of steps you want this while loop to create
+@while $step <=10  {
+  // darkens color step by step
+  .darken li:nth-child(#{$step}) {
+    background-color: darken($darken-color, ($step * 2%));
+  }
+
+  // makes color more transparent
+  .fade li:nth-child(#{$step}) {
+    background-color: transparentize($fade-color, (($step * .019) * 5));
+  }
+
+  // moves color around color wheel
+  .hue li:nth-child(#{$step}) {
+    background-color: adjust-hue($hue-color, $step*4);
+  }
+
+  // changes from one color to another
+  .mix li:nth-child(#{$step}) {
+    background-color: mix($end-color, $start-color, ($step * 10));
+  }
+  
+  // increment the step up by 1 so it continues until you've reached 10 (which you specified at the beginning of the function)
+  $step: $step + 1;
+}
+
+$step: 1; // Set the initial step value
+
+//Here's the start of the while function
+//The "<= #" determines the number of steps you want this while loop to create
+@while $step <=5  {
+  // darkens color step by step
+  .debugger .panel:nth-child(#{$step}) {
+    border-color: lighten($gray, ($step * 2%));
+  }
+   // increment the step up by 1 so it continues until you've reached 10 (which you specified at the beginning of the function)
+  $step: $step + 1;
+}
+
+
+.debugger {
+	.panel {
+		overflow:hidden;
+		background-color:$white;
+		border-color: lighten($gray, 10%);
+		@include transition(background-color 0.3s ease-in-out);
+		opacity: 0;
+		//transform: translateX(10%);
+		-webkit-animation: fadeIn .3s ease-in-out forwards;
+  		-o-animation: fadeIn .3s ease-in-out forwards;
+        animation: fadeIn .3s ease-in-out forwards;
+		.panel-heading {
+			padding:0;
+			background:none;
+			border:none;
+			.panel-title {
+				font-size:1.25em;
+			}
+			a {
+				@include transition(background-color 0.3s ease-in-out);
+				padding:0.4em 1.5em;
+				padding-left: 2.25em;
+				display:block;
+				color: $strap-main;
+				position:relative;
+				i {
+					//@include transition(all 0.3s ease);
+					@include rotateZ(0);
+					position:absolute;
+					left:1em;
+				}
+				&:hover, &:focus {
+					color:$white;
+					i {
+						color: $white;
+						@include rotateZ(90);
+					}
+					&.open {
+						background-color: $strap-main;
+						i {
+							@include rotateZ(0);
+						}
+					}
+				}
+				&.open {
+					background-color: $strap-main-hover;
+					color:$white;
+					i {
+						@include rotateZ(90);
+					}
+				}
+			}
+		}
+		.panel-body {
+			background:$white;
+			pre {
+				margin:0;
+				padding:0;
+				border:none;
+				background:none;
+			}
+		}
+		&:hover, &:focus {
+			border-color: $strap-main;
+			background-color: $strap-main;
+			.panel-heading {
+				a {
+					color:$white;
+				}
+			}
+		}
+	}
+}
+@keyframes fadeIn {
+    0% {
+    	opacity: 0;
+        @include translateX (10%);
+    }
+    100% {
+        opacity: 1;
+        @include translateX (0%);
+    }
+}
+@-webkit-keyframes fadeIn {
+  	0% {
+    	opacity: 0;
+        @include translateX (10%);
+    }
+    100% {
+        opacity: 1;
+        @include translateX (0%);
+    }
+}
+
+@-o-keyframes fadeIn {
+ 	0% {
+    	opacity: 0;
+        @include translateX (10%);
+    }
+    100% {
+        opacity: 1;
+        @include translateX (0%);
+    }
+}
+

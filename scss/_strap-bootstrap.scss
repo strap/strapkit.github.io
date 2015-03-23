@@ -1,0 +1,259 @@
+
+/*********************
+BOOTSTRAP VARIABLES
+*********************/
+//== Colors
+$blue: #42b8e7;
+$brand-primary:         $blue !default;
+$brand-success:         $green !default;
+$brand-info:            $blue !default;
+$brand-warning:         #e99002 !default;
+$brand-danger:          #d9534f !default;
+
+
+// Fonts
+$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       $serif, Georgia, "Times New Roman", Times, serif !default;
+
+$font-size-base:          16px !default;
+
+$headings-font-weight:    300 !default;
+$headings-small-color:        inherit !default;
+
+$icon-font-path: "../bootstrap/fonts/" !default;
+$btn-font-weight:                300 !default;
+
+// Padding
+$padding-base-vertical:     16px !default;
+$padding-base-horizontal:   20px !default;
+
+$border-radius-base:        1.5em !default;
+$border-radius-large: 		1.5em !default;
+// Button
+
+$btn-default-color:              $black !default;
+$btn-default-bg:                 #e6e6e6 !default;
+$btn-default-border:             #ccc !default;
+
+// Inputs 
+$input-color:                    $dark-gray !default;
+// Navbar
+$navbar-height:                    75px !default;
+$navbar-default-color:             $strap-main !default;
+$navbar-default-bg:                #ffffff !default;
+$navbar-default-border:            none !default;
+
+$navbar-inverse-color:                      $black !default;
+$navbar-inverse-bg:                         #222 !default;
+$navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 #fafafa !default;
+$navbar-inverse-link-hover-color:           #fff !default;
+$navbar-inverse-link-hover-bg:              $slight-trans-white !default;
+$navbar-inverse-link-active-color:          $blue !default;
+$navbar-inverse-link-active-bg:             $trans-white !default;
+$navbar-inverse-link-disabled-color:        #444 !default;
+$navbar-inverse-link-disabled-bg:           transparent !default;
+
+$nav-pills-border-radius:                   $border-radius-base !default;
+
+// Dropdown 
+$dropdown-bg:                    $black !default;
+//** Dropdown menu `border-color`.
+$dropdown-border:                none !default;
+//** Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:       none !default;
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            $black !default;
+
+//** Dropdown link text color.
+$dropdown-link-color:            $white !default;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      $white !default;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         $black !default;
+//@import "bootstrap";
+
+$panel-border-radius: $border-radius-base;
+$panel-body-padding:          16px 20px !default;
+
+$table-cell-padding:            16px !default;
+$table-bg-accent:               #ffffff !default;
+
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             $green !default;
+$state-success-bg:               transparent !default;
+$state-success-border:           $green !default;
+
+$state-info-text:                $blue !default;
+$state-info-bg:                  transparent !default;
+$state-info-border:              $blue !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               transparent !default;
+$state-warning-border:           darken(adjust-hue($state-warning-text, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                transparent !default;
+$state-danger-border:            darken(adjust-hue($state-danger-text, -10), 5%) !default;
+
+//## Define alert colors, border radius, and padding.
+$alert-padding:	0.75em 1.25em !default;
+$alert-border-radius: $border-radius-base !default;
+$alert-link-font-weight:      normal !default;
+
+$alert-success-bg:            $state-success-bg !default;
+$alert-success-text:          $state-success-text !default;
+$alert-success-border:        $state-success-border !default;
+
+$alert-info-bg:               $state-info-bg !default;
+$alert-info-text:             $state-info-text !default;
+$alert-info-border:           $state-info-border !default;
+
+$alert-warning-bg:            $state-warning-bg !default;
+$alert-warning-text:          $state-warning-text !default;
+$alert-warning-border:        $state-warning-border !default;
+
+$alert-danger-bg:             $state-danger-bg !default;
+$alert-danger-text:           $state-danger-text !default;
+$alert-danger-border:         $state-danger-border !default;
+.alert {
+  padding: $alert-padding;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+  h3 {
+  	margin-top: 0em;
+  }
+  p, pre {
+  	margin:0;
+  }
+}
+// Alerts
+// -------------------------
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+  .btn-default, .btn-secondary {
+    border-color: $border;
+    color: $border;
+    &:hover {
+        background-color: $border;
+        color:$white;
+    }
+  }
+  .close {
+  	color: $border;
+  	&:hover, &:focus, &:active {
+  		color: darken($border, 10%);
+  	}
+  }
+}
+.affix {
+	position: relative;
+	@include breakpoint("medium-desktop") {
+		position:fixed; 
+		top: 0;
+		right: 0;
+	}
+	@include breakpoint("kinda-large-desktop") {
+		right:3em;
+	}
+}
+.alert-success {
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+.alert-info {
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+.alert-warning {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+.alert-dismissable, .alert-dismissible {
+	padding-right: 35px;
+}
+
+.navbar-fixed-top {
+	top: auto;
+	border:none;
+}
+.form-control {
+	font-size: 1em;
+	padding: 0.5em 1em;
+	height:auto;
+}
+
+.well {
+	@include border-radius($border-radius-base);
+	@include box-shadow(none);
+	border:0;
+	&.well-strap {
+		padding:2.5em;
+		@include css-gradient($light-gray, $light-trans-gray);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+		h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+		    margin-top: 0;
+		}
+	}
+}
+.panel {
+  @include border-radius($panel-border-radius);
+  @include box-shadow(none);
+  &:hover {
+  	border-color: $green;
+  }
+}
+.modal {
+	//position: absolute;
+	.modal-dialog {
+		margin: 115px auto 0;
+		max-width: 90%;
+	}
+}
+.modal-content {
+	@include border-radius($panel-border-radius);
+  	@include box-shadow(0 0em 0 $trans-black);
+  	border:1px solid $strap-main;
+}
+.modal-backdrop {
+	background-color: white;
+	&.in {
+		filter: alpha(opacity=50);
+		opacity: .5;
+	}
+}
+.list-group-item {
+	padding: $padding-base-vertical $padding-base-horizontal;
+	&:first-child {
+		@include border-radius($border-radius-base $border-radius-base 0 0);
+	}
+	&:last-child {
+		@include border-radius(0 0 $border-radius-base $border-radius-base);
+	}
+}
+.label {
+  margin:0.25em;
+  display: inline-block;
+}
+.close {
+	font-size: 24px;
+	font-weight: 300;
+}
+@import "bootstrap/variables";
+//@import "bootstrap/navbar";
+ /* bootstrap hack: fix content width inside hidden tabs */
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+    display: block;     /* undo display:none          */
+    height: 0;          /* height:0 is also invisible */ 
+    overflow-y: hidden; /* no-overflow                */
+}
+.tab-content > .active,
+.pill-content > .active {
+    height: auto;       /* let the content decide it  */
+} /* bootstrap hack end */

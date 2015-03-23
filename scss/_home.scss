@@ -1,0 +1,863 @@
+.main-content {
+    float:right;
+    background:#fcfcfc;
+    margin-top:5.5em;
+	@include breakpoint("desktop") {
+        margin-top:6.5em;
+	}
+    .load-wrap {
+        width:100% !important;
+        margin:0 !important;
+    }
+}
+.page-content {
+    float:right;
+    background:#fcfcfc;
+    padding-top: 120px;
+}
+#home-hero {
+    height:295px;
+    @include breakpoint("tablet") {
+        height:575px;
+    }
+    @include breakpoint("desktop") {
+        margin-top:-3em;
+        height:755px;
+    }
+}
+#splash-hero {
+    height:425px;
+    @include breakpoint("tablet") {
+        height:575px;
+    }
+    @include breakpoint("desktop") {
+        height:755px;
+    }
+}
+#home-hero, #splash-hero {
+    background-color: $white;
+    width:auto;
+    z-index:$home-hero-z-index;
+    position:relative;
+    .hero-text {
+        position: absolute;
+        top: 100px;
+        bottom: 0;
+        width:100%;
+        h1 {
+            color: transparentize($dark-gray, 0.2);
+            font-size:1.25em;
+            margin:0.5em auto;
+            width: 260px;
+            @include breakpoint("tablet") {
+                margin:0.5em 1em;
+                width:auto;
+            }
+
+        }
+    }
+    .form-field-button-combo { 
+        margin: 0 auto;
+        font-size:0.75em;
+    }
+    video {
+        height: 325px !important;
+        width:auto !important;
+        @include breaksection("phone") {
+            top: -20px !important;
+        }
+    }
+    .background-gif {
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        overflow: hidden;
+        -webkit-background-size: cover;
+        background-image: none;
+        background-size: cover;
+        background-position: 50% 0%;
+        background-repeat: no-repeat;
+        img {
+            margin: auto;
+            position: absolute;
+            z-index: -1;
+            top: 0%;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            visibility: visible;
+            width: auto;
+            height: 415px;
+            max-width:none;
+        }
+    }
+    @include breakpoint("tablet") {
+        .hero-text {
+            top: 230px;
+            bottom: 0;
+            width:100%;
+            h1 {
+                font-size:2em;
+                margin:0.67em auto;
+                width: 535px;
+                line-height: 1.25;
+                max-width:100%;
+            }
+            .form-field-button-combo { 
+                font-size:1em;
+            }
+        }
+        video {
+            height: 575px !important;
+            width:auto !important;
+        }
+    }
+    @include breakpoint("desktop") {
+        .hero-text {
+            top: 330px;
+            bottom: 0;
+            width:100%;
+            h1 {
+                font-size:2em;
+                margin:0.67em auto;
+                width: 535px;
+                line-height: 1.25;
+                max-width:100%;
+            }
+            .form-field-button-combo { 
+                font-size:1em;
+            }
+        }
+        video {
+            height: 755px !important;
+            width:auto !important;
+        }
+    }
+}
+
+#video-hero {
+    background-color: $white;
+    width:100%;
+    height:775px;
+    z-index:$video-hero-z-index;
+    .hero-text {
+        position: absolute;
+        width:100%;
+        height:100%;
+        h1 {
+            color: $white;
+            text-shadow: 0px 2px 8px transparentize($dark-gray, 0.3);
+        }
+    }
+    .play-button {
+        background-image: url("../img/strap-video-play-button.png");
+        background-position:center;
+        width: 150px;
+        height:150px;
+        border: none;
+        outline: none;
+        background-size: 100%;
+        background-color: transparent;
+        @include opacity(0.9);
+        @include breakpoint("desktop") {
+            transition: all 0.15s ease-in-out;
+            -webkit-transform: scale3d(0.92, 0.92, 0.92);
+        }
+        &:hover, &:focus, &:active {
+            @include box-shadow(none);
+            @include opacity(1);
+            @include breakpoint("desktop") {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            }
+        }
+    }
+    @include breaksection("phone") {
+        height: 575px;
+        video {
+            height: 575px !important;
+            width:auto !important;
+        }
+    }
+}
+
+
+section {
+    padding: 2em 1em;
+    @include breakpoint("tablet") {
+        padding: 2em 3em;
+    }
+}
+
+.white-bg {
+    background-color: $white;
+}
+.transdarkblue-bg {
+    background-color: $trans-dark-gray;
+}
+.code-input {
+    position:relative;
+    border: 3.5px solid $green;
+    background: darken($dark-gray,10%);
+    @include border-radius(1.5em);
+    display:inline-block;
+    padding: 0 5px;
+    overflow: visible;
+    margin:0;
+    margin-bottom:4em;
+    font-size:0.75em;
+    &:hover {
+        .copy-clipboard {
+            @include opacity(0.8);
+            &:hover {
+                @include opacity(1);
+            }
+        }
+    }
+    .copy-clipboard {
+        color: $blue;
+        cursor: pointer;
+        padding: 0.75em 0 0.25em;
+        @include opacity(0);
+        @include transition(all 0.3s ease);
+    }
+    @include breakpoint("tablet") {
+        padding: 0 20px;
+        margin: 20px;
+        font-size:1em;
+    }
+    .terminal-command {
+        &:before {
+            content: "$";
+            margin-left: -5px;
+            margin-right: 5px;
+            color: #75715e;
+        }
+    }
+    .code-input-tab {
+        position:absolute;
+        top:-43px;
+        left:2em;
+        background-image: url("../img/code-panel-tab.png");
+        background-repeat:no-repeat;
+        background-size:100% auto;
+        width: 190px;
+        padding:13px 1em;
+        color:$green;
+        text-align:center;
+    }
+    .code-input-right {
+        position: absolute;
+        right: 3px;
+        top: -6em;
+        margin-left: 0px;
+        transform: translateX(100%);
+        width: 80%;
+        pointer-events:none;
+    }
+    code {
+        background: none;
+    }
+}
+.sections {
+    @include verticle-gradient($white, #bbf9ff);
+    #kit {
+        background-color: rgba(255,255,255,0.5);
+        .product-logo-text {
+            @include breakpoint("desktop") {
+                padding-left:0;
+            }
+            img {
+                margin-left: -13px;
+                display:inline-block;
+                vertical-align:middle;
+                @include breakpoint("tablet") {
+                    margin-left: -24px;
+                    padding-left: 1.5em;
+                }
+                @include breakpoint("desktop") {
+                    display: block;
+                    padding-left: 0em;
+                }
+            }
+            .product-logo-byline {
+                display:inline-block;
+                padding-left:0.5em;
+                vertical-align:middle;
+                margin-bottom:0;
+                @include breakpoint("desktop") {
+                    display: block;
+                    padding:0;
+                    margin-bottom: inherit;
+                }
+            }
+        }
+    }
+    #connect {
+        background-color: rgba(255,255,255,0.25);
+        .product-logo-text {
+            padding-left: 0.5em;
+            @include breakpoint("tablet") {
+                img {
+                    margin-left: -55px;
+                }
+            }
+            @include breakpoint("desktop") {
+                padding-left:0;
+            }
+            img {
+                margin-left: -38px;
+            }
+        }
+    }
+    #metrics {
+        background-color: rgba(255,255,255,0);
+        position: relative;
+        .product-logo-text {
+            padding-left: 0.5em;
+            @include breakpoint("tablet") {
+                img {
+                    margin-left: -62px;
+                }
+            }
+            @include breakpoint("desktop") {
+                padding-left:0;
+            }
+            img {
+                margin-left: -42px;
+            }
+        }
+        .metrics-text {
+            position: absolute;
+            width: 100%;
+            padding: 1em;
+            top: 0;
+            left: 0;
+            z-index: $metrics-text-z-index;
+        }
+        .metrics-tour-bg {
+            background-image: url("../img/metrics-graphic-m-bg.png");
+            background-repeat: no-repeat;
+            background-size: 340px auto;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 9em;
+            left: 0;
+            margin: 0 auto;
+            background-position: top center;
+            @include breakpoint("tablet") {
+                background-size: 650px auto;
+                top: 8em;
+            }
+            @include breakpoint("kinda-large-desktop") {
+                top:0;
+                background-size: 1200px auto;
+                background-image: url("../img/metrics-graphic-bg.png");
+            }
+        }
+        .metrics-tour {
+            width: 209px;
+            position: relative;
+            margin: 189px auto 1em;
+            z-index: 1;
+            top:0;
+            @include breakpoint("tablet") {
+                width:400px;
+                margin: 229px auto 3em;
+            }
+            @include breakpoint("kinda-large-desktop") {
+                margin: 211px auto 7em;
+                width: 613px;
+            }
+        }
+    }
+    #updates {
+        position:relative;
+        background-color: rgba(0,0,0,0.1);
+        overflow:hidden;
+        h1 {
+            margin-top:0;
+        }
+        span.register-checkbox {
+            font-family: $sans-regular;
+            text-transform: uppercase;
+            color: $dark-gray;
+            margin: 0.25em;
+            display:inline-block;
+        }
+        .form-field-button-combo { 
+            margin: 0.5em auto 0;
+            font-size:1em;
+        }
+        .thumbs-up-left {
+            position: absolute;
+            right: 80%;
+            top:30%;
+            height: 110px;
+            width:1200px;
+            max-width:1200px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            -webkit-transform: translate3d( -100%, 0, 0 );
+            -moz-transform: translate3d( -100%, 0, 0 );
+            -o-transform: translate3d( -100%, 0, 0 );
+            transform: translate3d( -100%, 0, 0 );
+
+            @include breakpoint("desktop") {
+                display: block;
+                &.checked {
+                    -webkit-transform: translate3d( 0, 0, 0 );
+                    -moz-transform: translate3d( 0, 0, 0 );
+                    -o-transform: translate3d( 0, 0, 0 );
+                    transform: translate3d( 0, 0, 0 );
+                }
+            }
+        }
+        .thumbs-up-right {
+            position: absolute;
+            left: 80%;
+            top:30%;
+            height: 110px;
+            width:1200px;
+            max-width:1200px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            -webkit-transform: translate3d( 100%, 0, 0 );
+            -moz-transform: translate3d( 100%, 0, 0 );
+            -o-transform: translate3d( 100%, 0, 0 );
+            transform: translate3d( 100%, 0, 0 );
+            @include breakpoint("desktop") {
+                display: block;
+                &.checked {
+                    -webkit-transform: translate3d( 0, 0, 0 );
+                    -moz-transform: translate3d( 0, 0, 0 );
+                    -o-transform: translate3d( 0, 0, 0 );
+                    transform: translate3d( 0, 0, 0 );
+                }
+            }
+        }
+    }
+    .product-logo-text {
+        img {
+            height: 55px;
+            @include breakpoint("tablet") {
+                height: 80px;
+            }
+        }
+    }
+    .product-logo-byline {
+        margin-top:0;
+        color: transparentize($dark-gray, 0.2);
+    }
+    .enterprise-strap-graphic {
+        margin-top:-3em;
+    }
+    ul.nav-tabs {
+        border: none;
+        > li {
+            > a {
+                border:none;
+                border-bottom: 2px solid transparent;
+                color: $strap-main;
+                background:none;
+                @include border-radius(0);
+                padding:0;
+                margin: 0.5em 1em 0.5em 0;
+                text-transform: uppercase;
+                font-family: $sans-regular;
+                &:hover, &:focus, &:active {
+                    background: none;
+                    color: $strap-main-hover;
+                    border-bottom: 2px solid $strap-main-hover;
+                }
+            }
+            &.active {
+                > a {
+                    color: transparentize($dark-gray, 0.2);
+                    border: none;
+                    border-bottom: 2px solid transparentize($dark-gray, 0.2);
+                }
+            }
+        }
+    }
+}
+
+#supporters {
+    @include linear-gradient($green, $strap-main);
+    .supporters-wrap {
+        background-color: transparentize($white, 0.8);
+        a {
+            img {
+                @include opacity(0.8);
+                @include breakpoint("desktop") {
+                    transition: all 0.15s ease-in-out;
+                    -webkit-transform: scale3d(0.92, 0.92, 0.92);
+                }
+            }
+            &:hover, &:focus, &:active {
+                @include box-shadow(none);
+                img {
+                    @include opacity(1);
+                    @include breakpoint("desktop") {
+                        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.black-bg {
+    background-color: black;
+}
+
+.sign-up {
+	width:80%;
+	max-width:20em;
+	margin:1em auto;
+	input[type="text"], input[type="password"], input[type="email"], input, textarea {
+		// font-family: "Open Sans";
+		font-weight: 300;
+		font-size:1em;
+        padding:0.75em 1.5em;
+        height:auto;
+	}
+    textarea {
+        resize:vertical;
+    }
+}
+.combined-submit {
+	input[type="text"], input[type="password"], input[type="email"], input {
+		@include border-radius(0);
+		border-bottom-color:transparent;
+		&:first-child {
+			@include border-radius(0.5em 0.5em 0 0);
+			margin:0;
+		}
+		&:last-child {
+			@include border-radius(0 0 0.5em 0.5em);
+			margin:0;
+		}
+        &:only-child {
+            @include border-radius(0.5em);
+        }
+		&.btn {
+			padding:1em;
+		}
+	}
+}
+
+
+.strap-footer {
+    @include linear-gradient($green, $strap-main);
+    /*
+    background: rgb(71,184,229);
+    background: -moz-linear-gradient(left,  rgba(103,192,130,1) 0%, rgba(71,184,229,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(103,192,130,1)), color-stop(100%,rgba(71,184,229,1)));
+    background: -webkit-linear-gradient(left,  rgba(103,192,130,1) 0%,rgba(71,184,229,1) 100%);
+    background: -o-linear-gradient(left,  rgba(103,192,130,1) 0%,rgba(71,184,229,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(103,192,130,1) 0%,rgba(71,184,229,1) 100%);
+    background: linear-gradient(to right,  rgba(103,192,130,1) 0%,rgba(71,184,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67c082', endColorstr='#47b8e5',GradientType=1 );
+    */
+    p, .p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        margin: 16px 0;
+        padding: 8px;
+        line-height:16px;
+        vertical-align: middle;
+    }
+    nav {
+        ul {
+            margin: 16px 0;
+            line-height:16px;
+            vertical-align: middle;
+            li {
+                padding: 8px;
+                display: inline-block;
+                
+            }
+        }
+    }
+    text-align: center;
+    @include breakpoint("desktop") {
+        .col-sm-4 {
+            text-align: left;
+            &:nth-child(3n - 1) {
+                text-align: center;
+            }
+            &:nth-child(3n) {
+                text-align: right;
+            }
+        }
+    }
+}
+
+//TODO make this more responsive...
+.videoWrapper {
+    position: relative;
+    //padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 720px;
+}
+.videoWrapper iframe {
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    display:block;
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+    max-width:1280px;
+    max-height:720px;
+}
+
+
+// Old Hero Design
+
+/*#main-hero {
+    @include linear-gradient($dark-gray, $strap-main);
+    background-position: center top;
+    background-repeat:no-repeat;
+    height: auto;
+    position:relative;
+    @include breakpoint("medium-desktop") {
+        height: 50em;
+    }
+    @include breakpoint("kinda-large-desktop") {
+        height: 60em;
+    }
+    @include breakpoint("extra-large-desktop") {
+        background-size: 100% auto;
+        background-position: center 0em;
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 0;
+        padding-top:75px;
+        bottom: 0;
+        height: 55em;
+        width:100%;
+        @include breakpoint("tablet") {
+            height: 80em;
+        }
+        @include breakpoint("desktop") {
+            height:57em;
+        }
+        @include breakpoint("medium-desktop") {
+            height: 50em;
+        }
+        @include breakpoint("kinda-large-desktop") {
+            height:60em;
+        }
+        .hero-text-logo {
+            .hero-text-logo-icon {
+                img {
+                    height: 58px;
+                    @include breakpoint("tablet") {
+                        height:78px;
+                    }
+                }
+            }
+            .hero-text-logo-text {
+                img {
+                    height: 38px;
+                    @include breakpoint("tablet") {
+                        height:58px;
+                    }
+                }
+            }
+        }
+        .hero-text-links {
+            @include breakpoint("medium-desktop") {
+                position: absolute;
+                bottom: 0;
+                height:10em;
+            }
+        }
+        .kit-half, .metrics-half {
+            position: absolute;
+            max-width:300px;
+            width:100%;
+            @include breakpoint("desktop") {
+                position: absolute;
+                bottom:5em;
+                top: auto;
+                height: 15em;
+            }
+            @include breakpoint("medium-desktop") {
+                position: relative;
+                bottom: auto;
+                height:90%;
+            }
+            @include breakpoint("kinda-large-desktop") {
+                height:90%;
+            }
+            img {
+                width: auto;
+                display:block;
+            }
+        }
+        .kit-half {
+            top:40%;
+            left:0;
+            @include breakpoint("tablet") {
+                top: 40%;
+                left:2em;
+            }
+            @include breakpoint("desktop") {
+                left:0;
+                top: auto;
+            }
+            a.hero-text-logo {
+                display:block;
+                transition: all 0.15s ease-in-out;
+                -webkit-transform: scale3d(0.88, 0.88, 0.88);
+                @include box-shadow(none);
+                &:hover, &:focus, &:active {
+                    -webkit-transform: scale3d(1, 1, 1);
+                    @include box-shadow(none);
+                }
+            }
+        }
+        .metrics-half {
+            top:78%;
+            right:0;
+            @include breakpoint("tablet") {
+                top: 80%;
+                right:2em;
+            }
+            @include breakpoint("desktop") {
+                right:0;
+                top: auto;
+            }
+            a.hero-text-logo {
+                display:block;
+                transition: all 0.15s ease-in-out;
+                -webkit-transform: scale3d(0.92, 0.92, 0.92);
+                @include box-shadow(none);
+                &:hover, &:focus, &:active {
+                    -webkit-transform: scale3d(1, 1, 1);
+                    @include box-shadow(none);
+                }
+            }
+        }
+    }
+    .hero-img {
+        height: 100%;
+        width: 300px;
+        margin:7em auto 0;
+        background-image: url("/img/strap-graphic-mobile-static.png");
+        background-size: 100% auto;
+        background-position: top center;
+        background-repeat: no-repeat;
+        pointer-events:none;
+        overflow:visible;
+        height: 45em;
+        margin-top: 10em;
+        @include breakpoint("tablet") {
+            width: 100%;
+            height: 70em;
+            background-size: 500px auto;
+        }
+        @include breakpoint("desktop") {
+            margin-top: 7em;
+            background-position: top center;
+            background-size: 100% auto;
+            background-image: url("/img/strap-graphic-desktop-static.png");
+            height:50em;
+        }
+        @include breakpoint("kinda-large-desktop") {
+            height:60em;
+        }
+    }
+}
+.product-logo-white {
+    .product-logo-icon {
+        img {
+            height: 58px;
+            @include breakpoint("tablet") {
+                height:78px;
+            }
+        }
+    }
+    .product-logo-text {
+        img {
+            height: 38px;
+            @include breakpoint("tablet") {
+                height:58px;
+            }
+        }
+    }
+}
+*/
+
+.blue-bg {
+    background-color: $strap-main;
+    .sign-up {
+        .fields {
+            margin-bottom: 0.5em;
+            input[type="text"], input[type="password"], input[type="email"], textarea {
+                margin:1px 0;
+                border:1px solid;
+                border-color: transparent;
+                background-color: $trans-dark-gray;
+                color:$white;
+                @include border-radius(0);
+                &:first-child {
+                    @include border-radius(1.5em 1.5em 0 0);
+                }
+                &:last-child {
+                    @include border-radius(0 0 1.5em 1.5em);
+                }
+                &:only-child {
+                    @include border-radius(1.5em);
+                }
+                &:focus {
+                    background-color: $dark-gray;
+                }
+            }
+        }
+    }
+}
+.darkblue-bg {
+    background-color: $dark-gray;
+    .sign-up {
+        .fields {
+            margin-bottom: 0.5em;
+            input[type="text"], input[type="password"], input[type="email"], textarea {
+                margin:1px 0;
+                border:1px solid;
+                border-color: transparent;
+                background-color: $trans-green;
+                color:$white;
+                @include border-radius(0);
+                &:first-child {
+                    @include border-radius(1.5em 1.5em 0 0);
+                }
+                &:last-child {
+                    @include border-radius(0 0 1.5em 1.5em);
+                }
+                &:only-child {
+                    @include border-radius(1.5em);
+                }
+                &:focus {
+                    background-color: $green;
+                }
+            }
+        }
+        input[type="submit"] {
+            color: $green;
+            &:hover, &:focus, &.active {
+                color: $dark-gray;
+            }
+        }
+    }
+}

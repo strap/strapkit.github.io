@@ -1,0 +1,160 @@
+.input-group-headed {
+	float:left;
+	display:block;
+	overflow:hidden;
+	border: 1px solid #dddddd;
+	@include border-radius(0.5em);
+	.input-label-header-top {
+		background: $light-gray;
+		border-bottom: 1px solid #dddddd;
+		float:left;
+		width:100%;
+	}
+}
+input[type="text"], input[type="password"], input[type="email"], .ui-autocomplete-input, textarea, .uneditable-input {
+	@include box-shadow(none);
+
+	&:focus {
+		@include box-shadow(none);	
+	}
+	&.input-nostyle {
+		border:none;
+		@include box-shadow(none);
+		padding:0;
+		font-size: inherit;
+		line-height:inherit;
+		background:none;
+		@include border-radius(0);
+	}
+	&.form-control {
+		display:block;
+		font-size: 1em;
+		padding: 0.5em 1em;
+		height:auto;
+		line-height: 1.5;
+		@include border-radius(1.5em);
+		@include box-shadow(none);
+		&:focus {
+			@include box-shadow(none);
+		}
+	}
+
+}
+
+.form-control {
+	margin-bottom:0.5em;
+	border: 1px solid #bbbbbb;
+	@include box-shadow(none);
+	&::-webkit-input-placeholder {
+		color: $gray;
+		&:hover, &:focus {
+			color:$gray;
+		}
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $gray;
+		&:hover, &:focus {
+			color:$gray;
+		} 
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		color: $gray;
+		&:hover, &:focus {
+			color:$gray;
+		}
+	}
+
+	&:-ms-input-placeholder {  
+		color: $gray;
+		&:hover, &:focus {
+			color:$gray;
+		}
+	}
+}
+.form-inverted {
+	::-webkit-input-placeholder {
+	   color: $trans-white;
+	   &:hover, &:focus {
+			color:$white;
+		}
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+		color: $trans-white;
+		&:hover, &:focus {
+			color:$white;
+		} 
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: $trans-white;
+	   &:hover, &:focus {
+			color:$white;
+		}
+	}
+
+	:-ms-input-placeholder {  
+	   color: $trans-white;
+	   &:hover, &:focus {
+			color:$white;
+		}
+	}
+	input[type="text"], input[type="password"], input[type="email"] {
+		&:focus {
+			::-webkit-input-placeholder {
+			   color: $white;
+			}
+
+			:-moz-placeholder { /* Firefox 18- */
+				color: $white;
+			}
+
+			::-moz-placeholder {  /* Firefox 19+ */
+			   color: $white;
+			}
+
+			:-ms-input-placeholder {  
+			   color: $white;
+			}
+		}
+	}
+}
+
+.form-field-button-combo {
+    width: 100%;
+    max-width: 400px;
+    display:table;
+    position:relative;
+    border-collapse: separate;
+    font-size: 0.875em;
+    input[type="email"] {
+        position: relative;
+        white-space: nowrap;
+        display:table-cell;
+        margin: 0;
+        vertical-align: middle;
+        padding: 0.5em 1.25em;
+        @include border-radius(2.5em 0 0 2.5em);
+    }
+    span {
+        position: relative;
+        white-space: nowrap;
+        display:table-cell;
+        vertical-align: middle;
+        width:1%;
+        input[type="submit"] {
+            margin:0;
+            margin-left:-1px;
+            display:inline-block;
+            line-height:1.5;
+            padding: 0.5em 1.25em;
+            @include border-radius(0 2.5em 2.5em 0);
+            border: 1px solid $strap-main;
+        }
+    }
+}
+span.login {
+	
+}
