@@ -1,0 +1,304 @@
+
+// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+/*********************
+MEDIA QUERIES
+*********************/
+@mixin breakpoint($point) {
+    @if $point == extra-large-desktop {
+    @media (min-width: 2080px) { @content; }
+    } 
+    @if $point == kinda-large-desktop {
+    @media (min-width: 1200px) { @content; }
+    }  
+    @if $point == large-desktop {
+    @media (min-width: 1030px) { @content; }
+    }
+    @if $point == medium-desktop {
+    @media (min-width: 992px) { @content; }
+    }
+    @else if $point == desktop {
+    @media (min-width: 768px) { @content; }
+    }
+    @else if $point == tablet {
+    @media (min-width: 481px) { @content; }
+    }
+    @else if $point == phone {
+    @media (min-width: 0) { @content; }
+    }
+}
+@mixin breaksection($section) {
+    @if $section == extra-large-desktop {
+    @media only screen and (min-width: 2080px) { @content; }
+    } 
+    @if $section == kinda-large-desktop {
+    @media only screen and (min-width: 1200px) and (max-width:2079px) { @content; }
+    }  
+    @if $section == large-desktop {
+    @media only screen and (min-width: 1030px) and (max-width:1199px) { @content; }
+    }
+    @if $section == medium-desktop {
+    @media only screen and (min-width: 992px) and (max-width:1029px) { @content; }
+    }
+    @else if $section == desktop {
+    @media only screen and (min-width: 768px) and (max-width:991px) { @content; }
+    }
+    @else if $section == tablet {
+    @media only screen and (min-width: 481px) and (max-width:767px) { @content; }
+    }
+    @else if $section == phone {
+    @media only screen and (min-width: 0) and (max-width:480px) { @content; }
+    }
+}
+
+/*********************
+BORDER RADIUS
+*********************/
+
+@mixin border-radius($border-radius...) {
+  $prefixes:      ("-webkit", "-ms", "-o",  "");
+  @each $prefix in $prefixes {
+    #{$prefix}-border-radius: $border-radius;
+  }
+  border-radius: $border-radius;
+}
+
+/*********************
+TRANSITION
+*********************/
+
+@mixin transition($transition...) {
+  // defining prefixes so we can use them in mixins below
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transition: $transition;
+  }
+}
+
+// generic transform
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+@mixin rotateX ($deg) {
+  @include transform(rotateX(#{$deg}deg));
+}
+@mixin rotateY ($deg) {
+  @include transform(rotateY(#{$deg}deg));
+}
+@mixin rotateZ ($deg) {
+  @include transform(rotateZ(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+   @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+@mixin translateY ($y) {
+   @include transform(translateY($y));
+}
+@mixin translateX ($x) {
+   @include transform(translateX($x));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+       -o-transform-origin: $origin;
+      -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+/*********************
+GRADIENTS
+*********************/
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, right bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(left, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(left, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(left, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(left, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(left, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+@mixin verticle-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, top, bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+
+/*********************
+OPACITY
+*********************/
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+/*********************
+GOOGLE WEB FONTS
+*********************/
+
+
+$sans: "Brandon Grotesque Light";
+$serif: "Roboto";
+
+$sans-thin: "Brandon Grotesque Thin";
+$sans-light: "Brandon Grotesque Light";
+$sans-regular: "Brandon Grotesque Regular";
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+
+@mixin css-gradient($from, $to) {
+  background-color: $to;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BOX SHADOW
+*********************/
+
+@mixin box-shadow($box-shadow) {
+  -webkit-box-shadow:$box-shadow;
+  -moz-box-shadow:$box-shadow;
+  box-shadow:$box-shadow;
+}
+
+/*********************
+COLORS
+*********************/
+
+$white : #ffffff;
+$trans-white: rgba(255,255,255,0.8);
+$slight-trans-white: rgba(255,255,255,0.2);
+
+$off-white: #f5f5f5;
+
+
+$light-gray: #f0f0f0;
+$light-trans-gray: rgba(255,255,255,0);
+
+
+$green: #67c082;
+$dark-green: #52a06c;
+$trans-green: rgba(103,192,130,0.5);
+
+$gray-00: #fafafa;
+$gray-01: #f5f5f5;
+$gray-02: #f0f0f0;
+$gray-02-trans: rgba(255,255,255,0);
+$gray-03:#E6E6E6;
+$gray-04: #cccccc;
+$gray-08: #3b4250;
+
+$gray: #cacaca;
+$dark-gray: #3b4250;
+$black: #333333;
+$dark-black: #272727;
+$trans-black: rgba(0,0,0,0.2);
+$trans-dark-gray : rgba(59,66,80,0.8);
+
+$red: #f59282;
+$trans-red: rgba(255, 29, 37, 0.3);
+
+$yellow: #f8ed31;
+$blue: #47b8e5;
+
+$orange: #f9ae3b;
+
+$trans-blue: rgba(71,184,229,0.8);
+$strap-main: $blue;
+$strap-main-hover: darken($blue,10%);
+$strap-main-light: lighten($blue,10%);
+
+.text-white {
+    color: $white;
+    a {
+      color: $trans-white;
+      &:hover, &:focus, &:active {
+        color: $white;
+        @include box-shadow(0 1px 0 0 $white);
+        @include transition(.5s);
+      }
+      &.no-style {
+        @include box-shadow(none);
+      }
+      &.btn {
+        &:hover, &:focus, &:active {
+          @include box-shadow(none);
+        }
+      }
+    }
+}
+.text-trans-white {
+  color: $trans-white;
+}
+.text-gray {
+    color: $gray;
+}
+.text-blue {
+    color: $blue;
+}
+.text-green {
+    color: $green;
+}
+.text-thin {
+    font-family: $sans-thin;
+}
+.text-light {
+    font-family: $sans-light;
+}
+.text-regular {
+    font-family: $sans-regular;
+}
+.text-trans-dark-gray {
+  color: $trans-dark-gray;
+}
+.white-bg {
+  background: $white;
+}
+.trans-white-bg-70 {
+  background:  transparentize($white, 0.3);
+}
+.trans-white-bg-40 {
+  background:  transparentize($white, 0.6);
+}
+.trans-white-bg-20 {
+  background:  transparentize($white, 0.8);
+}
+

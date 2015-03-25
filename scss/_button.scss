@@ -1,0 +1,95 @@
+.btn, .joyride-tip-guide .joyride-next-tip {
+	@include border-radius(1.5em);
+	padding: 0.75em 1.25em;
+	font-size: 1em;
+	letter-spacing:1px;
+	@include box-shadow(none);
+	@include transition(background 0.3s ease-in-out, opacity 0.3s ease-in-out);
+	outline:0;
+	&.btn-icon {
+		padding: 0.75em;
+		line-height:1;
+		i {
+			font-size: 1em;
+		}
+	}
+	&.active, &:active {
+		@include box-shadow(none);
+	}
+	&:focus {
+		outline:0;
+		@include box-shadow(0 0 0 5px $trans-black);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+	    cursor: not-allowed;
+	    pointer-events: none; // Future-proof disabling of clicks
+	    @include opacity(.25);
+	    @include box-shadow(none);
+	}
+}
+.btn-default {
+	&:hover, &:active, &:focus, &.active {
+		background-color: $white;
+		border-color: $strap-main;
+		color: $strap-main;
+	}
+}
+.btn-lg {
+	font-size:1.25em;
+}
+.btn-secondary, a.btn-secondary {
+	background-color: rgba(255,255,255,0);
+	border-color: $strap-main;
+	color: $strap-main;
+	&:hover, &:focus, &.active {
+		background-color: $strap-main-hover;
+		border-color: $strap-main-hover;
+		color: $white;
+	}
+	&.btn-inverted {
+		border-color: $white;
+		color: $white;
+		&:hover, &:focus, &.active {
+			background-color: $white;
+			border-color: $white;
+			color: $strap-main-hover;
+		}
+	}
+}
+.btn-primary, a.btn-primary {
+	background-color: $strap-main;
+	border-color: $strap-main;
+	&:hover, &.active, &:focus {
+		background-color: $strap-main-hover;
+		border-color: $strap-main-hover;
+	}
+	&.btn-inverted {
+		background-color: $white;
+		border-color: transparent;
+		color: $strap-main;
+		&:hover, &:focus, &.active {
+			background-color: $trans-white;
+			border-color: transparent;
+			color: $dark-gray;
+		}
+	}
+}
+.btn, .dropdown-menu>li>a, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+    font-weight:300 !important;
+}
+.open .btn-primary.dropdown-toggle {
+	background-color: $strap-main-hover;
+}
+
+.btn-sm, .joyride-tip-guide .joyride-next-tip {
+	padding: 0.5em 1em;
+	font-size: 0.875em;
+	line-height: 1.5;
+	&.btn-icon {
+		padding: 0.3em;
+		line-height:1;
+		i {
+			font-size: 1.875em;
+		}
+	}
+}

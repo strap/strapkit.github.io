@@ -1,0 +1,438 @@
+body {
+	font-family: $sans;
+	font-size:1.125em;
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+input {
+    font-family: $sans;
+    font-size:1em;
+    font-weight:300;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+   small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: inherit;
+  } 
+}
+i {
+    &.h1, &.h2, .h3, .h4, .h5, .h6 {
+        font-family: 'strap';
+    }
+}
+h1, .h1, h2, .h2 {
+    font-family: 'Brandon Grotesque Light';
+}
+b,
+strong {
+    font-weight: normal;
+    font-family: 'Brandon Grotesque Regular';
+}
+a {
+    color: $strap-main;
+    &:hover, &:focus {
+        text-decoration:none;
+        color: darken($strap-main-hover,10%);
+    }
+    &.no-style {
+        color: inherit;
+        text-decoration:none;
+        @include box-shadow(none);
+        &:hover, &:focus, &:active {
+            @include box-shadow(none);
+        }
+    }
+}
+
+img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+}
+.right {
+    float:right;
+}
+.left {
+    float:left;
+}
+
+pre {
+   background-color: ghostwhite;
+   border: 1px solid silver;
+   padding: 10px 20px;
+   margin: 20px; 
+   }
+.json-key {
+   color: brown;
+   }
+.json-value {
+   color: navy;
+   }
+.json-string {
+   color: olive;
+   }
+
+
+.padded {
+    padding:10px;
+}
+.vert-padded {
+    padding-top: 1em;
+    padding-bottom:1em;
+}
+.horiz-padded {
+    padding-left: 10px;
+    padding-right:10px;
+}
+.horiz-padded-20 {
+    padding-left: 20px;
+    padding-right:20px;
+}
+.margined {
+    margin: 10px;
+}
+.horiz-margined {
+    margin-left: 10px;
+    margin-right:10px;
+}
+.vert-margined {
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.vert-margined-15 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.extra-large-text {
+    font-size: 3em;
+    @include breakpoint("desktop") {
+        font-size: 3em;
+    }
+}
+.xlarge-text {
+    font-size: 5em;
+    margin-bottom: 0.5em;
+    //font-family: 'Brandon Grotesque Thin';
+    @include breakpoint("desktop") {
+        font-size: 5em;
+    }
+}
+.large-text {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    font-family: 'Brandon Grotesque Thin';
+    @include breakpoint("desktop") {
+        font-size: 3em;
+    }
+}
+.italic {
+    font-style: italic;
+}
+.border-left {
+    border-left: 1px solid $gray;
+}
+.border-right {
+    border-right: 1px solid $gray;
+}
+.border-top {
+    border-top: 1px solid $gray;
+}
+.border-bottom {
+    border-bottom: 1px solid $gray;
+}
+.full {
+    width:100%;
+    &.padding {
+        padding:0 1em;
+    }
+}
+.half {
+    width:50%;
+    &.padding {
+        padding:0;
+    }
+    @include breakpoint("tablet") {
+        width:50%;
+        &.padding {
+            width:49%;
+            margin-right:1%;
+        }
+    }
+    &.persist {
+        width:50%;
+        &.padding {
+            width:49%;
+            margin-right:1%;
+        }
+    }
+}
+.third-half {
+    width:100%;
+    &.padding {
+        padding:0;
+    }
+    @include breakpoint("desktop") {
+        width:50%;
+        &.padding {
+            width:49%;
+            margin-right:1%;
+        }
+    }
+    &.persist {
+        width:50%;
+        &.padding {
+            width:49%;
+            margin-right:1%;
+        }
+    }
+    @include breakpoint("large-desktop") {
+        width:33.3%;
+        &.padding {
+            width:32.3%;
+            margin-right:1%;
+        }
+    }
+}
+.three-fourths {
+    width:100%;
+    @include breakpoint("tablet") {
+        width:75%;
+    }
+}
+.fourth {
+    width:100%;
+    @include breakpoint("tablet") {
+        width:25%;
+    }
+}
+.third {
+    width:100%;
+    @include breakpoint("tablet") {
+        width:33.3%;
+        &.padding {
+            width:32.3%;
+            margin-right:1%;
+        }
+    }
+}
+.two-thirds {
+    width:100%;
+    @include breakpoint("tablet") {
+        width:66.6%;
+    }
+}
+.fixed {
+    position:fixed;
+}
+.absolute {
+    position: absolute;
+    z-index: $absolute-z-index;
+}
+.absolute-top-right {
+    @extend .absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+.absolute-top-left {
+    @extend .absolute;
+    top: 0.5em;
+    left: 0.5em;
+}
+.absolute-bottom-right {
+    @extend .absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+}
+.absolute-bottom-left {
+    @extend .absolute;
+    bottom: 0.5em;
+    left: 0.5em;
+}
+.relative {
+    position: relative;
+}
+.table-cell {
+    display:table-cell;
+}
+.table {
+    display:table;
+}
+.block {
+    display:block;
+}
+.inline-block {
+    display: inline-block;
+}
+.bottom {
+	position:static;
+	bottom:0;
+	right:0;
+	left:0;
+	width:100%;
+    z-index:$bottom-z-index;
+    @include breakpoint("desktop") {
+        position:absolute;
+    }
+}
+.center {
+    margin:0 auto;
+    display:inline-block;
+    float:none;
+}
+
+.circle {
+    @include border-radius(100%);
+    overflow:hidden;
+}
+
+.box-shadowed {
+    @include box-shadow(0 0.5em 0 $trans-black);
+}
+.load-img {
+    width:64px;
+    @include opacity(0.5);
+}
+
+
+.circle-border {
+    position:relative;
+    display:inline-block;
+    width:auto;
+    margin:0 auto;
+    @include border-radius(50%);
+    margin:2%;
+    border: 2px solid $strap-main;
+    text-decoration: none;
+    &:hover {
+        text-decoration:none;
+        border-color: $strap-main-hover;
+    }
+    img {
+        margin:2%;
+        width:96%;
+    }
+
+    .circle-center {
+        width: 8em;
+        height: 8em;
+        padding: 1em;
+        top: 0;
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        @include breakpoint("desktop") {
+            width: 10em;
+            height: 10em;
+        }
+    }
+}
+.main {
+    transition: -webkit-filter 0.3s linear, -webkit-transform 0.3s linear;
+}
+.blur {
+    -webkit-filter: blur(5px);
+    -webkit-transform: scale3d(0.95, 0.95, 0);
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.vert-center-tab-wrap {
+    @include breakpoint("tablet") {
+        display: table;
+        float: none;
+    }
+    .vert-center-tab {
+        @include breakpoint("tablet") {
+            display:table-cell;
+            vertical-align: middle;
+            float: none;
+        }
+    }
+}
+.vert-center-wrap {
+    display: table;
+    width:100%;
+    height:100%;
+    float: none;
+    .vert-center {
+        display:table-cell;
+        width:100%;
+        height:100%;
+        vertical-align: middle;
+        float: none;
+    }
+}
+
+.logo-animated {
+    display:block;
+    width:268px;
+    padding:0.5em 0;
+    margin:0 auto;
+    white-space:nowrap;
+    float:none;
+    position:relative;
+    height: 85px;
+    padding:0.5em 0.5em 0;
+    text-align:left;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    //-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; // IE8
+    //filter: alpha(opacity=0);
+    //opacity: 0;
+    -webkit-animation-name: logoIn;
+    animation-name: logoIn;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    z-index: $logo-animated-z-index;
+    img {
+        max-height:100%;
+        display: inline;
+        position:relative;
+        -webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out;
+        -webkit-animation-name: logoInIcon;
+        animation-name: logoInIcon;
+        -webkit-animation-duration: 0.6s;
+        animation-duration: 0.6s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    .logo-text {
+        display:inline-block;
+        color: $gray;
+        background: -webkit-linear-gradient(left,  rgba(71,184,229,1.0) 0%,rgba(103,192,130,1.0) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.875em;
+        font-family: 'Brandon Grotesque Thin', $sans;
+        margin-left: 0.25em;
+        vertical-align: middle;
+        -webkit-transition: opacity 0.3s ease-in-out, letter-spacing 0.6s ease-in-out;
+        -moz-transition: opacity 0.3s ease-in-out, letter-spacing 0.6s ease-in-out;
+        -o-transition: opacity 0.3s ease-in-out, letter-spacing 0.6s ease-in-out;
+        transition: opacity 0.3s ease-in-out, letter-spacing 0.6s ease-in-out;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -webkit-animation-name: logoInText;
+        animation-name: logoInText;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+
+
+

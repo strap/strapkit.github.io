@@ -1,1 +1,205 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cross Platform Wearable App Development - Strap Kit</title>
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- styles -->
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/strap.css" rel="stylesheet">
+    <link href="js/styles/monokai_sublime.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <script type="text/javascript">
+    ! function() {
+        var analytics = window.analytics = window.analytics || [];
+        if (!analytics.initialize)
+            if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+            else {
+                analytics.invoked = !0;
+                analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "group", "track", "ready", "alias", "page", "once", "off", "on"];
+                analytics.factory = function(t) {
+                    return function() {
+                        var e = Array.prototype.slice.call(arguments);
+                        e.unshift(t);
+                        analytics.push(e);
+                        return analytics
+                    }
+                };
+                for (var t = 0; t < analytics.methods.length; t++) {
+                    var e = analytics.methods[t];
+                    analytics[e] = analytics.factory(e)
+                }
+                analytics.load = function(t) {
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = !0;
+                    e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+                    var n = document.getElementsByTagName("script")[0];
+                    n.parentNode.insertBefore(e, n)
+                };
+                analytics.SNIPPET_VERSION = "3.0.1";
+                analytics.load("n2l2tgptvf");
+                analytics.page()
+            }
+    }();
+    </script>
+    <script>
+    var page = "<%- page %>";
+    var dashboard = "<%- config.dashboard %>";
+    </script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="navbar-wrapper navbar-home">
+            <div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-mobile-menu navbar-collapse collapse navbar-left">
+                            <div type="button" class="btn btn-icon btn-secondary btn-sm navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="icon-close"></i>
+                            </div>
+                            <ul class="visible-xs nav navbar-nav">
+                                <li>
+                                    <a class="text-center" data-toggle="collapse" data-target=".navbar-collapse" href="http://blog.straphq.com/">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="text-center" data-toggle="collapse" data-target=".navbar-collapse" href="https://docs.straphq.com">SDK + Docs</a>
+                                </li>
+                                <li>
+                                    <a class="text-center" data-toggle="collapse" data-target=".navbar-collapse" href="/company">Company</a>
+                                </li>
+                                <li>
+                                    <a class="text-center" data-toggle="collapse" data-target=".navbar-collapse" href="http://hacks.straphq.com">Hackathons</a>
+                                </li>
+                                <li class="padded">
+                                    <div class="row full">
+                                        <div class="col-xs-6">
+                                            <a class="full btn btn-secondary btn-sm text-center" data-toggle="collapse" data-target=".navbar-collapse" href="/login">Login</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a class="full btn btn-secondary btn-sm text-center" data-toggle="collapse" data-target=".navbar-collapse" href="/register">Sign Up for Free</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="text-center vert-padded">
+                                        <a class="padded" href="https://www.facebook.com/getstrap"><i class="icon-facebook"></i></a> <a class="padded" href="https://twitter.com/getstrap"><i class="icon-twitter"></i></a> <a class="padded" href="https://github.com/strap/"><i class="icon-github"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 ">
+                            <div class="navbar-header full left">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand col-sm-12 scrollToLink text-center" href="/#top">
+                                	<img class="logo-icon text-center center img-responsive" src="/img/strap-icon.png" alt="Strap" title="Strap Metrics: Real-time Wearable Analytics" />
+
+                        			<span title="Strap Metrics: Real-time Wearable Analytics" class="logo-text">STRAP</span>
+
+                                    <img class="img-responsive center" src="/img/kit-nav-logo.png" alt="Strap" title="Strap - The only platform that goes everywear." />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 pull-right">
+                            <div class="main-menu navbar-right">
+                                <ul class="hidden-xs nav navbar-nav">
+                                    <li>
+                                        <iframe class="vert-margined-15" src="https://ghbtns.com/github-btn.html?user=strap&repo=strapkit&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero
+	================================================== -->
+    <div id="home-hero">
+        <div class="hero-text">
+            <div class="container">
+                <h1 class="text-center">Write your wearable app in <b>JavaScript</b>. </br>Deploy natively to <b>Pebble</b> and <b>Android Wear</b>.</h1>
+                <div class="full text-center">
+                    <a class="btn btn-primary text-center" href="https://github.com/strap/strapkit">Github</a>
+                    <a class="btn btn-primary text-center" href="https://docs.straphq.com">Docs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Marketing messaging and featurettes
+	================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="sections">
+        <section id="kit">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h1 class="text-center">Get Started</h1>
+                        <pre class="code-input text-center"><code class="language-bash terminal-command left">npm install -g strapkit</code><span class="pull-right" title="Copy to Clipboard" data-toggle="tooltip" data-placement="right"><a href="#" id="copy-clipboard-install" class="copy-clipboard pull-right nohighlight" ><i class="icon-copy"></i></a></span></pre>
+                    </div>
+                    <div class="col-xs-12 col-md-8 col-md-offset-1">
+                        <pre class="code-input"><span class="code-input-tab">app.js</span><code class="language-javascript">
+var splashPage = StrapKit.UI.Page();
+
+var card = StrapKit.UI.Card({
+title: 'Hello!',
+body:'I am alive.'
+});
+
+// Adds content to a Page
+splashPage.addView(card);
+
+// Tells your wearable app to show
+// this page
+splashPage.show();
+</code><span class="pull-right" title="Copy to Clipboard" data-toggle="tooltip" data-placement="right"><a href="#" id="copy-clipboard-app" class="copy-clipboard pull-right nohighlight"><i class="icon-copy"></i></a></span><span class="hidden-xs  code-input-right sm-hidden xs-hidden"><img src="/img/code-panel-right.png"/></span></pre>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="full text-center">
+                            <a class="btn btn-primary text-center" href="https://github.com/strap/">Github</a>
+                            <a class="btn btn-primary text-center" href="https://docs.straphq.com">Docs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    </script>
+    <script src="js/picturefill.js"></script>
+    <script src="js/jquery.vide.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/headroom.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootbox.min.js"></script>
+    <script src="js/ZeroClipboard.js"></script>
+</body>
+
+</html>
